@@ -2,8 +2,8 @@
 clear all
 close all
 plotthestuff=1;
-
-dirs.alapkonyvtar='/home/rozmar/Mount/TGTAR_1/EMdata/';
+locations=marcicucca_locations;
+dirs.alapkonyvtar=[locations.EMdir,'EMdata/'];
 dirs.tifkonyvtar=[dirs.alapkonyvtar,'rawtif/Elmi_patosz/juci/0410181mg/a dendrit/'];
 dirs.montage2ddir=[dirs.alapkonyvtar,'2dmontage/Elmi_patosz/juci/0410181mg/a dendrit/'];
 dirs.maskdir=[dirs.alapkonyvtar,'2dmasks/Elmi_patosz/juci/0410181mg/a dendrit/'];
