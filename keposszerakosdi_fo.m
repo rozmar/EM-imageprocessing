@@ -1,7 +1,7 @@
 %% kepek beolvasasa
 clear all
 close all
-plotthestuff=1;
+plotthestuff=0;
 locations=marcicucca_locations;
 dirs.alapkonyvtar=[locations.EMdir,'EMdata/'];
 dirs.tifkonyvtar=[dirs.alapkonyvtar,'rawtif/Elmi_patosz/juci/0410181mg/a dendrit/'];
@@ -40,6 +40,7 @@ for znum=1:length(zvals)
     a=dir([dirs.montage2ddir,fname(1:hyps(end)-1),'.tif']);
     if isempty(a)
     for picnum=2:length(idxes)
+        disp([fname,'  picture ',num2str(picnum),'/',num2str(length(idxes))]);
         fname=filek(idxes(picnum-1)).name;
         %         basepic=filek(idxes(picnum-1)).nyerskep;
         %         newpic=filek(idxes(picnum)).nyerskep;
