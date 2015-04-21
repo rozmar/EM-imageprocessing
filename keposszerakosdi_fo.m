@@ -32,13 +32,13 @@ gauci=[1 1];
 gaucinagy=[5 5];
         h=fspecial('gaussian',gauci*6,gauci(1));
         hnagy=fspecial('gaussian',gaucinagy*6,gaucinagy(1));
- stdszorzo=2;    
+ stdszorzo=4;    
 for znum=1:length(zvals)
     idxes=find(strcmp({filek.z},zvals(znum)));
     fname=filek(idxes(1)).name;
     hyps=strfind(fname,'_');
     a=dir([dirs.montage2ddir,fname(1:hyps(end)-1),'.tif']);
-    if isempty(a)
+    if isempty(a) & length(idxes)>=2
     for picnum=2:length(idxes)
         disp([fname,'  picture ',num2str(picnum),'/',num2str(length(idxes))]);
         fname=filek(idxes(picnum-1)).name;
