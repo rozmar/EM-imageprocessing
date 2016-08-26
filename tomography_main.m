@@ -44,7 +44,7 @@ for dirnum=1:length(alltherawdirs)
     pixelysize=.000379;
     pixelzsize=.006216;
     
-    filtersize=.00075;
+    filtersize=.001;
     filterxsize=filtersize;
     filterysize=filtersize;
     filterzsize=filtersize;
@@ -59,7 +59,7 @@ for dirnum=1:length(alltherawdirs)
     filtereddata=imfilter(rawdata,h);
     toc
     
-    %% mentes
+    %% saving
     a=dir(dirs.filtered);
     if isempty(a)
         mkdir(dirs.filtered)
