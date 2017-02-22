@@ -23,6 +23,7 @@ montage=NaN([ceil(max(locations(:,2))-min(locations(:,2))+size(image,1)),ceil(ma
                     clf
                     plot(overlappingnew,overlappingbase,'kx')
                     hold on
+%                     pause
                 end
                 
                 overlapdims=size(overlappingnew);

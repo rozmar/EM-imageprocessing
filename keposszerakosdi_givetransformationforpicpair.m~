@@ -73,7 +73,7 @@ while (((length(inlierbase)<13 &ebboleleg<eddigeleg| length(inlierbase)>500) & (
     matchedbase=validPtsBase(indexPairs(:,1));
     matchednew=validPtsNew(indexPairs(:,2));
     if length(matchedbase)>1
-        [tform, inliernew, inlierbase] = estimateGeometricTransform(matchednew, matchedbase, 'affine','MaxDistance',maxdist);
+        [tform, inliernew, inlierbase] = estimateGeometricTransform(matchednew, matchedbase, 'similarity','MaxDistance',maxdist);
     else
         inlinerbase=[];
     end
@@ -163,7 +163,7 @@ if  length(inlierbase)>=13
             matchedbase2=matchedbase2(distfomedge>median(distfomedge));
 
             %             pause
-            [tform2, inliernew2, inlierbase2] = estimateGeometricTransform(matchednew2, matchedbase2, 'affine');
+            [tform2, inliernew2, inlierbase2] = estimateGeometricTransform(matchednew2, matchedbase2, 'similarity');
             Tinv2  = tform2.invert.T;
             xchangenow=floor(Tinv2(3,2));
             ychangenow=floor(Tinv2(3,1));
@@ -190,7 +190,6 @@ if  length(inlierbase)>=13
             base0(basex:basex+size(basepic,1)-1,basey:basey+size(basepic,2)-1,1)=basepic;
             base0(newx:newx+size(newpic,1)-1,newy:newy+size(newpic,2)-1,2)=newpic;
         end
-        matchednum=size(overlappingbase,1)*size(overlappingbase,2);
         tforms.tform2=tform2;
         tforms.tform2.T(3,1)=tforms.tform.T(3,1)+ychange;
         tforms.tform2.T(3,2)=tforms.tform.T(3,2)+xchange;

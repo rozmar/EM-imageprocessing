@@ -1,10 +1,11 @@
 %% kepek beolvasasa
 clear all
 close all
+blacklist={'SA-MAG_X10k_5A4'};
 plotthestuff=0;
 locations=marcicucca_locations;
 dirs.alapkonyvtar=[locations.EMdir,'EMdata/'];
-blacklist={'SA-MAG_X10k_5A4','SA-MAG_X8000_7A9'};
+
 % dirs.tifkonyvtar=[dirs.alapkonyvtar,'rawtif/Elmi_patosz/juci/0509164cs/bu2/'];
 % dirs.montage2ddir=[dirs.alapkonyvtar,'2dmontage/Elmi_patosz/juci/0509164cs/bu2/'];
 % dirs.tifkonyvtar=[dirs.alapkonyvtar,'rawtif/Elmi_patosz/juci/0403183j_AIS/'];
@@ -65,13 +66,7 @@ else
         
     end
 end
-
-%clear blacklsited files
-todel=[];
-for i=1:length(blacklist)
-    todel=[todel,find(strcmp({filek.z},blacklist{i}))];
-end
-filek(todel)=[];
+%%
 keposszerakosdi_2D_main(filek,dirs,plotthestuff)
 end
 return
